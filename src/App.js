@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 import ContactForm from "./ContactForm";
 import Filter from "./Filter";
@@ -16,7 +16,7 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("contacts", JSON.parse(contact));
+    localStorage.setItem("contacts", JSON.stringify(contact));
   }, [contact]);
 
   const addContact = (newContact) => {
@@ -35,7 +35,7 @@ export default function App() {
   };
 
   const onChange = (e) => {
-    setFilter(e.currentTatget.value);
+    setFilter(e.currentTarget.value);
   };
 
   const lowerCasedFilter = filter.toLowerCase();
